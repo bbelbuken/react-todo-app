@@ -1,8 +1,8 @@
 import React from "react";
 
-const Form = ({inputValue, setInputValue}) => {
+const Form = ({inputValue, setInputValue, handleSubmit}) => {
   return (
-    <form className="form" >
+    <form className="form" onSubmit={handleSubmit} >
       <input 
       type="text"
       value={inputValue}

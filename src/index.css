@@ -1,3 +1,7 @@
+html {
+  filter: brightness(0.4);
+}
+
 body {
   background-color: #ffeaa7;
   min-height: 70vh;
