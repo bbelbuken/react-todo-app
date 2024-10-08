@@ -5,12 +5,15 @@ import Header from "./Header";
 import List from "./List";
 
 function App() {
-  const [item, setItem] = useState("");
+  const [inputValue, setInputValue] = useState("");
 
   return (
     <div className="container">
       <Header />
-      <Form />
+      <Form
+        inputValue={inputValue}
+        setInputValue={setInputValue}
+      />
       <List />
     </div>
   );

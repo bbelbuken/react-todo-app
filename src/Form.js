@@ -1,13 +1,17 @@
 import React from "react";
 
-const Form = () => {
+const Form = ({inputValue, setInputValue}) => {
   return (
-    <div className="form">
-      <input type="text" />
+    <form className="form" >
+      <input 
+      type="text"
+      value={inputValue}
+      onChange={(e) => setInputValue(e.target.value)}
+      />
       <button>
         <span>Add</span>
       </button>
-    </div>
+    </form>
   );
 };
 

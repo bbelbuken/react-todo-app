@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const ListItem = () => {
-  return (
-    <li>A Item</li>
-  )
-}
+  return <li>A Item</li>;
+};
 
-export default ListItem
+export default ListItem;
