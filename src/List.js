@@ -1,16 +1,16 @@
 import React from "react";
 import ListItem from "./ListItem";
 
-const List = ({ listItem, deleteItem }) => {
+const List = ({ listItem, deleteItem, handleCheck }) => {
   return (
     <div>
       <ul>
         {listItem.map((item) => (
           <ListItem 
             key={item.id}
-            id={item.id}
-            item={item.item}
+            item={item}
             deleteItem={deleteItem}
+            handleCheck={handleCheck}
           />
         ))}
       </ul>
