@@ -9,6 +9,7 @@ const ListItem = ({ item, deleteItem, handleCheck }) => {
       {item.checked ? (
         <RiCheckboxCircleFill
           className="checkbox"
+          style={{color: '#f8b12e'}}
           onClick={() => handleCheck(item.id)}
         />
       ) : (

@@ -74,6 +74,15 @@ button span {
   padding: 0.5rem 1rem;
   border-radius: 5px;
   border: 2px solid hsl(198, 1%, 29%);
+  cursor: pointer;
+}
+
+button > span:hover{
+  background-color: #fdcb6e;
+}
+
+button > span:active {
+  filter: brightness(1.2);
 }
 
 ul {
