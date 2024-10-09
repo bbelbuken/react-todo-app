@@ -16,10 +16,10 @@ function App() {
     localStorage.setItem("todolist", JSON.stringify(addToList))
   };
 
-  const deleteItem = (item) => {
-    item.filter(() => {
-
-    })
+  const deleteItem = (id) => {
+    const filteredList = listItem.filter(item => item.id !== id)
+    setListItem(filteredList)
+    localStorage.setItem("todolist", JSON.stringify(filteredList))
   }
 
   const handleSubmit = (e) => {

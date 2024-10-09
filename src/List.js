@@ -8,6 +8,7 @@ const List = ({ listItem, deleteItem }) => {
         {listItem.map((item) => (
           <ListItem 
             key={item.id}
+            id={item.id}
             item={item.item}
             deleteItem={deleteItem}
           />
