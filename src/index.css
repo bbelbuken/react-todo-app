@@ -81,6 +81,7 @@ ul {
 }
 
 li {
+  font-size: 1.2rem;
   width: 100%;
   display: flex;
   justify-content: space-evenly;
@@ -94,12 +95,14 @@ li {
 
 .checkbox {
   height: auto;
-  margin-right: 1.5rem;
+  margin-right: 2rem;
+
 }
 
 .delete-box {
   margin-left: auto;
   height: auto;
+
 }
 
 .checkbox:hover,
