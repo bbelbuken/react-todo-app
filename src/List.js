@@ -1,7 +1,7 @@
 import React from "react";
 import ListItem from "./ListItem";
 
-const List = ({ listItem }) => {
+const List = ({ listItem, deleteItem }) => {
   return (
     <div>
       <ul>
@@ -9,6 +9,7 @@ const List = ({ listItem }) => {
           <ListItem 
             key={item.id}
             item={item.item}
+            deleteItem={deleteItem}
           />
         ))}
       </ul>

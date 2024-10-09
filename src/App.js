@@ -16,6 +16,12 @@ function App() {
     localStorage.setItem("todolist", JSON.stringify(addToList))
   };
 
+  const deleteItem = (item) => {
+    item.filter(() => {
+
+    })
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!inputValue) return;
@@ -27,7 +33,7 @@ function App() {
     <div className="container">
       <Header />
       <Form inputValue={inputValue} setInputValue={setInputValue} handleSubmit={handleSubmit} />
-      <List listItem={listItem}/>
+      <List listItem={listItem} deleteItem={deleteItem}/>
     </div>
   );
 }
