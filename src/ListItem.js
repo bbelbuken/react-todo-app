@@ -17,7 +17,12 @@ const ListItem = ({ item, deleteItem, handleCheck }) => {
           onClick={() => handleCheck(item.id)}
         />
       )}
+      <span style={{
+        textDecoration: item.checked ? "line-through" : 'none',
+        fontStyle : item.checked ? 'italic' : 'normal'}}>
       {item.item}
+      </span>
+
       <MdOutlineDeleteSweep
         className="delete-box"
         onClick={() => deleteItem(item.id)}
