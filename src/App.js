@@ -34,7 +34,7 @@ function App() {
 
 
   const addItem = async (item) => {
-    const id = listItem.length ? listItem[listItem.length - 1].id + 1 : 1;
+    const id = listItem.length ? parseInt(listItem[listItem.length - 1].id + 1).toString()  : 1;
     const newItem = { id, checked: false, item };
     const addToList = [...listItem, newItem];
     setListItem(addToList);
