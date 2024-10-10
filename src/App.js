@@ -21,7 +21,7 @@ function App() {
         setListItem(listItems);
         setFetchError(null);
       } catch (error) {
-        setFetchError(error.msg);
+        setFetchError(error.message);
       } finally {
         setIsLoading(false);
       }
@@ -59,11 +59,18 @@ function App() {
 
   return (
     <div>
-      {isLoading ? (<>
-        <CircularProgress className="backdrop" />
-        <p>Receiving Data</p>
-      </>
-      ) : (
+      {isLoading && (
+        <>
+          <CircularProgress className="backdrop" />
+          <p>Receiving Data</p>
+        </>
+      )}
+      {fetchError && (
+        <p
+          style={{ color: "red", marginTop: "5rem" }}
+        >{`Error : ${fetchError}`}</p>
+      )}
+      {!isLoading && !fetchError && (
         <div className="container">
           <Header />
           <Form
