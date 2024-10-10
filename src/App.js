@@ -4,6 +4,7 @@ import Form from "./Form";
 import Header from "./Header";
 import List from "./List";
 import CircularProgress from "@mui/material/CircularProgress";
+import ApiRequest from "./ApiRequest";
 
 function App() {
   const API_URL = "http://localhost:3500/items";
@@ -31,24 +32,56 @@ function App() {
     }, 1000);
   }, []);
 
-  const addItem = (item) => {
+
+  const addItem = async (item) => {
     const id = listItem.length ? listItem[listItem.length - 1].id + 1 : 1;
     const newItem = { id, checked: false, item };
     const addToList = [...listItem, newItem];
     setListItem(addToList);
+
+    const addMethod = {
+      method: 'Post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newItem)
+    }
+    const result = await ApiRequest(API_URL, addMethod)
+    if (result) setFetchError(result)
   };
 
-  const deleteItem = (id) => {
+
+  const deleteItem = async (id) => {
     const filteredList = listItem.filter((item) => item.id !== id);
     setListItem(filteredList);
+
+    const deleteMethod = { method: 'DELETE'};
+    const reqURL = `${API_URL}/${id}`
+    const result = await ApiRequest(reqURL, deleteMethod)
+    if (result) setFetchError(result)
   };
 
-  const handleCheck = (id) => {
+
+  const handleCheck = async (id) => {
     const checkedItems = listItem.map((item) =>
       item.id === id ? { ...item, checked: !item.checked } : item
     );
     setListItem(checkedItems);
+    
+
+    const myItem = checkedItems.find(item => item.id === id)
+    const updateMethod = {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({checked: myItem.checked})
+    }
+    const reqURL = `${API_URL}/${id}`
+    const result = await ApiRequest(reqURL, updateMethod)
+    if (result) setFetchError(result)
   };
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
